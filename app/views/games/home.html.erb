@@ -1,0 +1,29 @@
+
+<style type="text/css">
+
+</style>
+
+<div class="container">
+<h1 class="<%= @score_class %>">Number: <%= @number %></h1>
+
+
+  <%= link_to '1', add_session_url(number: 1, current_number: @number), method: 'post', class: 'btn btn-primary btn-lg' %>
+  <%= link_to '2', add_session_url(number: 2, current_number: @number), method: 'post', class: 'btn btn-primary btn-lg' %>
+  <%= link_to '3', add_session_url(number: 3, current_number: @number), method: 'post', class: 'btn btn-primary btn-lg'%>
+
+  <br>
+  <br>
+
+
+    <% if @number == 20 %>
+
+      <h1 class="game_message">You won. Other dude lost.</h1>
+      <%= link_to 'New Game', new_game_url, class: 'new_game' %>
+
+    <% elsif @number > 20%>
+
+      <h1 class="game_message">You either won, or you just don't get it.</h1>
+      <%= link_to 'New Game', new_game_url, class: 'new_game btn btn-danger' %>
+
+    <% end %>
+</div>
